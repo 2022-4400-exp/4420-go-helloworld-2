@@ -7,7 +7,7 @@ RUN go install
 
 RUN go build -o helloworld
 
-FROM alpine
+FROM scratch
 COPY --from=builder /app/helloworld /
 
 CMD ["/helloworld"]
