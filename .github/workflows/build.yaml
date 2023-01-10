@@ -21,7 +21,6 @@ jobs:
         uses: docker/setup-buildx-action@v2
         with:
           version: latest
-          platforms: all
 
       - name: Build Docker image and publish
         run: |
