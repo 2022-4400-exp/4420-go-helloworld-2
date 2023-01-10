@@ -5,7 +5,7 @@ WORKDIR /app
 
 RUN go install
 
-RUN go build -o helloworld
+RUN go build -a -tags "netgo" -installsuffix netgo -ldflags="-s -w -extldflags \"-static\"" -o helloworld
 
 FROM scratch
 COPY --from=builder /app/helloworld /
