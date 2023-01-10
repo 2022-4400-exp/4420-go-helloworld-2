@@ -33,7 +33,7 @@ jobs:
         id: update-image-tag
         continue-on-error: true
         run: |
-          yq eval '.spec.template.spec.containers[0].image = "ghcr.io/2022-4400-exp/4420-go-helloworld-2:"+env(GITHUB_SHA' -i ./manifest/deployment.yaml
+          yq eval '.spec.template.spec.containers[0].image = "ghcr.io/2022-4400-exp/4420-go-helloworld-2:"+env(GITHUB_SHA)' -i ./manifest/deployment.yaml
           git diff --name-only --exit-code
 
       - name: Commit&Push manifest
